@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]> <html xmlns:fb="http://ogp.me/ns/fb#" class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
-<!--[if IE 7]>    <html xmlns:fb="http://ogp.me/ns/fb#" class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
-<!--[if IE 8]>    <html xmlns:fb="http://ogp.me/ns/fb#" class="no-js lt-ie9" lang="en"> <![endif]-->
-<!--[if gt IE 8]><!--> <html xmlns:fb="http://ogp.me/ns/fb#" class="no-js"> <!--<![endif]-->
+<!--[if lt IE 7]> <html <?php if(isset($fbxmlns)) echo $fbxmlns; ?> class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html <?php if(isset($fbxmlns)) echo $fbxmlns; ?> class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html <?php if(isset($fbxmlns)) echo $fbxmlns; ?> class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html <?php if(isset($fbxmlns)) echo $fbxmlns; ?> class="no-js"> <!--<![endif]-->
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -48,7 +48,7 @@
 </head>
 <body>
 	<?php echo $body ?>
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+	<!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>-->
 
 	<script>
     var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];

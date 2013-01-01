@@ -16,7 +16,6 @@ class MY_Controller extends CI_Controller{
 	protected $jstmpl = array();
 	protected $css = array();
 	protected $fonts = array();
-	protected $debugData = array();
 
 	//Page Meta
 	protected $title = FALSE;
@@ -50,13 +49,15 @@ class MY_Controller extends CI_Controller{
 		$toTpl["keywords"] = $this->keywords;
 		$toTpl["author"] = $this->author;
 		
-		//data
-		$toBody["content_body"] = $this->load->view($view,array_merge($this->data,$toTpl),true);
-
+		// Facebook JSsdk
 		if($this->useFBjs)
 		{
+			$toTpl['fbxmlns'] = 'xmlns:fb="http://ogp.me/ns/fb#"';
 			$toBody["fbinitjs"] = $this->load->view("template/fbinitjs", $this->data, true);
 		}
+
+		//data
+		$toBody["content_body"] = $this->load->view($view,array_merge($this->data,$toTpl),true);
 		
 		//nav menu
 		if($this->hasNav) {
@@ -80,14 +81,11 @@ class MY_Controller extends CI_Controller{
 			}
 		}
 		$toBody["footer"] = $this->load->view("template/footer",'',true);
-
-		$toBody["debugData"] = $this->load->view("pages/debug", $this->debugData, true);
 		
 		$toTpl["body"] = $this->load->view("template/".$this->template,$toBody,true);
 		
 		
 		//render view
 		$this->load->view("template/skeleton",$toTpl);
-		
 	}
 }

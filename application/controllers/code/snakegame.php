@@ -12,6 +12,14 @@ class SnakeGame extends MY_Controller {
 	{
 		parent::__construct();
 
+		$this->title = "Snake Game";
+		$this->keywords = "snake, snake game, game";
+		$this->hasNav = FALSE;
+		$this->useHeader = FALSE;
+		$this->useBasejs = FALSE;
+		$this->useFBjs = TRUE;
+		$this->css = array('custom-style.css');
+
 		// Set Application ID
 		$this->app_id = $this->config->item('appId');
 		
@@ -41,13 +49,6 @@ class SnakeGame extends MY_Controller {
 
 	public function index()
 	{
-		$this->title = "Snake Game";
-		$this->keywords = "snake, snake game, game";
-		$this->hasNav = FALSE;
-		$this->useHeader = FALSE;
-		$this->useBasejs = FALSE;
-		$this->useFBjs = TRUE;
-		$this->css = array('custom-style.css');
 
 		$this->jstmpl = array('pages/snakegame/snakejs');
 
@@ -67,7 +68,7 @@ class SnakeGame extends MY_Controller {
 	}
 
 	public function debug() {
-		$this->debugData = array(
+		$debugData = array(
 			'app_info' 				=> $this->app_info,
 			'app_id'				=> $this->app_id,
 			'app_name'				=> $this->app_info['name'],
@@ -77,7 +78,8 @@ class SnakeGame extends MY_Controller {
 			'graph_url'				=> $this->graph_url,
 			'user_name'				=> he($this->user_info['name']),
 		);
-
-		$this->render('pages/debug');
+		echo '<pre>';
+		print_r($debugData);
+		echo '</pre>';
 	}
 };
